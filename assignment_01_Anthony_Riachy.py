@@ -7,7 +7,7 @@ def factorial(number):
       
     return number*factorial(number-1)
 
-##################################################################################################
+#######################################################################################################
 #ex 2
 def divisors(number):
   number=abs(number)#to handle negative numbers
@@ -22,7 +22,7 @@ def divisors(number):
    # return "[]"
   return my_list
 
-##################################################################################################
+#############################################github change test#####################################################
 #ex 3
 def reverseString(str):
   pos=len(str)-1#from the end of the string to the start
