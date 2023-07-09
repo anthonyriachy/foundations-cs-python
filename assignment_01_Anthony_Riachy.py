@@ -7,10 +7,12 @@ def factorial(number):
       
     return number*factorial(number-1)
 
+
 #######################################################################################################
 #ex 2
 def divisors(number):
   number=abs(number)#to handle negative numbers
+
   my_list=[]
   div=1
   while(div<=number):#starting from one till the number
@@ -42,6 +44,7 @@ def evenNumbers(my_list):
     if num % 2==0:
       new_list.append(num)
   return new_list
+
 ##################################################################################################
 def passwordValidator(password):
   flag=False
@@ -56,7 +59,7 @@ def passwordValidator(password):
       if(i.isupper()):
         upper=True
       if(i.islower()):
-        lower=True
+        lower=True  
       if(i.isdigit()):
         digit=True
       if(i in special):
@@ -75,6 +78,7 @@ def passwordValidator(password):
 
 def IPv4Validator(ip):
   numbers=ip.split('.')
+
   if(len(numbers)!=4):
     return False
   
@@ -169,10 +173,28 @@ def main():
   
     elif(choice ==6):
       ip=input("enter an ip address:")
+      flag=True
+      numbers=ip.split('.')
+
+      for num in numbers:
+        if(not num.isnumeric()):
+          flag=False
+
+      while not flag:
+        ip=input("enter a positive number")
+        numbers=ip.split('.')
+        flag=True
+        for num in numbers:
+          if(not num.isnumeric() ):
+            flag=False
+      
+        
+
       if(IPv4Validator(ip)==True):
         print("valid")
       else:
-        print("Invalid")
+          print("Invalid")
+
     elif(choice==7) :
       return 0
     print("\nenter another function:\n")
