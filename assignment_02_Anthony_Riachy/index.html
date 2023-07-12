@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="reminder.css">
+    <link rel="stylesheet" href="googleMaps.css">
+    <link rel="stylesheet" href="phone.css">
+    <link rel="stylesheet" href="clock.css">
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqq3NEiW4kZMf3sW-TjDiICf566EVcG38&callback=initMap">
+    </script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="java.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+
+    <section class="frame">
+        <div class="button-volup"></div>
+        <div class="button-voldown"></div>
+        <div class="button-off"></div>
+        <div class="button-mute"></div>
+
+        </div>
+            <section class="screen-edge">
+                <section class="content">
+                    <div class="header-content">
+                        <div class="screen-top">
+                            <hr class="head-speaker" >
+                        </div>
+                        <span class="time">9:41</span>
+                        <div class="battery">
+                            <i class="fa fa-wifi fa-.1x"></i>
+                            <i class="fa fa-signal"></i>
+                            <i class="fa fa-battery"></i>
+                        </div>
+                    </div>
+                    <section class="apps">
+                        <section class="apps-1">
+                            <div class="calendar">
+                                <img src="pics/calender.png" alt="">
+                                <p>calendar</p>
+                            </div>
+                            <div class="facetime">
+                                <img src="pics/1200x600wa.png" alt="">
+                                <p>facetime</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/bools.jfif" alt="">
+                                <p>books</p>
+                            </div>
+                            <div class="clock-app">
+                                <img src="pics/clock.png" alt="">
+                                <p>clock</p>
+                            </div>
+                            <div class="call">
+                                <img src="pics/call.jpg" alt="">
+                                <p>phone</p>
+                            </div>
+                            <div class="mapsApp">
+                                <img src="pics/maps.jpg" alt="">
+                                <p>maps</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/home.png" alt="">
+                                <p>home</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/mail.jpg" alt="">
+                                <p>mail</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/message.png" alt="">
+                                <p>messages</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/music.jfif" alt="">
+                                <p>music</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/news.png" alt="">
+                                <p>news</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/notes.jpg" alt="">
+                                <p>notes</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/photos.jpg" alt="">
+                                <p>photos</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/reminder.png" alt="">
+                                <p>reminder</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/safari.jpg" alt="">
+                                <p>safari</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/settings.jpg" alt="">
+                                <p>settings</p>
+                            </div>
+                        </section>
+
+
+                        <section class="apps-2">
+                            <div class="calendar">
+                                <img src="pics/stocks.jpg" alt="">
+                                <p>stocks</p>
+                            </div>
+                            <div class="facetime">
+                                <img src="pics/appstore.jpg" alt="">
+                                <p>store</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/wallet.jfif" alt="">
+                                <p>wallet</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/weather.jfif" alt="">
+                                <p>weather</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/call.jpg" alt="">
+                                <p>phone</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/maps.jpg" alt="">
+                                <p>maps</p>
+                            </div>
+                            <div class="">
+                                <img src="pics/home.png" alt="">
+                                <p>home</p>
+                            </div>
+                        </section>
+
+
+                        <section class="apps-bottom">
+                            <div class="">
+                                <img src="pics/yt.jpg" alt="">
+                            </div>
+                            <div class="">
+                                <img src="pics/wp.jpg" alt="">
+                            </div>
+                            <div class="">
+                                <img src="pics/netflix.png" alt="">
+                            </div>
+                            <div class="">
+                                <img src="pics/insta.jpg" alt="">
+                            </div>
+                        </section>
+
+                    <section class="pages">
+                        <div id="page-1"></div>
+                        <div id="page-2"></div>
+                    </section>    
+                    
+                    </section>
+
+                    <hr class="back-btn">
+                    
+                    <!-- !!!!!!!CALENDAR APPLICATION!!!!!! -->
+                    <section class="main-calendar">
+                        <section class="header-calendar">
+                            <span>today</span>
+                            <span>tomorrow</span>
+                            <span>in 2 days</span>
+                            <span class="open-reminders-btn"><i class="fa fa-bars"></i></span>
+                        </section>
+                        <section class="date">
+                        <div>
+                            <i class="fa fa-caret-left" id="left-sign"></i>
+                        </div>
+                        <p class="month-year">
+                            <span class="month">january</span>
+                            <span class="year">2022</span>
+                        </p>
+                        <div>
+                            <i class="fa fa-caret-right" id="right-sign"></i>
+                        </div>
+                        </section>
+                        <section class="day">
+                            <div class="">mo</div>
+                            <div class="">tu</div>
+                            <div class="">we</div>
+                            <div class="">th</div>
+                            <div class="">fr</div>
+                            <div class="">sa</div>
+                            <div class="">su</div>
+                        </section>
+                        <section class="day-number">
+                            <div class="day-31">31</div>
+                            <div class="day-1">1</div>
+                            <div class="day-2">2</div>
+                            <div class="day-3">3</div>
+                            <div class="day-4">4</div>
+                            <div class="day-5">5</div>
+                            <div class="day-6">6</div>
+                            <div class="day-7">7</div>
+                            <div class="day-8">8</div>
+                            <div class="day-9">9</div>
+                            <div class="day-10">10</div>
+                            <div class="day-11">11</div>
+                            <div class="day-12">12</div>
+                            <div class="day-13">13</div>
+                            <div class="day-14">14</div>
+                            <div class="day-15">15</div>
+                            <div class="day-16">16</div>
+                            <div class="day-17">17</div>
+                            <div class="day-18">18</div>
+                            <div class="day-19">19</div>
+                            <div class="day-20">20</div>
+                            <div class="day-21">21</div>
+                            <div class="day-22">22</div>
+                            <div class="day-23">23</div>
+                            <div class="day-24">24</div>
+                            <div class="day-25">25</div>
+                            <div class="day-26">26</div>
+                            <div class="day-27">27</div>
+                            <div class="day-28">28</div>
+                            <div class="day-29">29</div>
+                            <div class="day-30">30</div>
+                        </section>
+                
+                        <section class="add-reminder">
+                            <button style="border:none;background-color:transparent ;padding:0;" onclick="createReminder()" class="plus-sign"><i class="fa fa-plus"></i></button>
+                            <input type="text" placeholder="add reminder" class="reminder-input">
+                            <div class="remove">
+                                <button>remove</button>
+                                <button class="done-btn-reminder" onclick="saveReminder()">done</button>
+                            </div>
+                        </section>
+                        <section class="set-reminders">
+                            <h1 style="color:white;text-align:center;font-size:20px;margin-bottom:5px">reminders</h1>
+                            <hr width="60%">
+                            <div class="set-reminders-ul">
+                             
+                            </div>
+                        </section>
+                    </section>
+                    <!-- !!!!!!!!!!END!!!!!!!!! -->
+
+                    <!-- !!!!!!!!!!!GOOGLE MAPS!!!!!!!!!!!!!!!!!!! -->
+                    <section class="map">
+                        
+                        <section id="iframe-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211968.52829753366!2d35.423183441162124!3d33.889441247654915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f162035bd8d3b%3A0x8fac759728ef5199!2zMzPCsDUzJzIyLjAiTiAzNcKwMzMnNDcuOCJF!5e0!3m2!1sen!2slb!4v1656765077310!5m2!1sen!2slb" id="main-map" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </section>
+                        <section class="map-header">
+                            <!-- <hr style="width:10%" class="open-moreLocation"> -->
+                            <input type="text" class="map-search">
+                            <i class="fa fa-search"></i>
+                        </section>
+
+                        <section class="moreLocation">
+                            <hr style="width:10%" class="open-moreLocation">
+                            <div class="">sd</div>
+                            <div class=""></div>
+                            <div class=""></div>
+                            <div class=""></div>
+                        </section>
+                    </section>  
+                    <!--!!!!!!!!!!!!!!!!!! GOOGLEMAPS END!!!!!!!!!!!!11 -->
+
+                    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!PHONE!!!!!!!!!!!!!!! -->
+                    <section class="main-phone">
+                        <section class="name-phone">
+                            <div class="display-number" ></div>
+                        </section>
+                        <section class="numbers-pad">
+                            <div class="key" value="1">1</div>
+                            <div class="key" value="2">2<br><span>abc</span></div>
+                            <div class="key" value="3">3<br><span>def</span></div>
+                            <div class="key" value="4">4<br><span>hi</span></div>
+                            <div class="key" value="5">5<br><span>jkl</span></div>
+                            <div class="key" value="6">6<br><span>mno</span></div>
+                            <div class="key" value="7">7<br><span>pqrs</span></div>
+                            <div class="key" value="8">8<br><span>tuv</span></div>
+                            <div class="key" value="9">9<br><span>wxyz</span></div>
+                            <div class="key" value="*">*</div>
+                            <div class="key" value="0">0<br><span>+</span></div>
+                            <div class="key" value="#">#</div>
+                            <div class="delete-btn">
+                                <i class="fa fa-arrow-circle-left"></i>
+                            </div>
+                            <button class="call-btn">
+                                <i class="fa fa-phone"></i>
+                            </button>
+                        </section>
+                        <section class="phone-footer">
+                            <div class="fav">
+                                <i class="fa fa-star-o"></i>
+                                <br>
+                                favorites</div>
+                            <div class="recents">
+                                <i class="fa fa-clock-o "></i>
+                                <br>
+                                recents</div>
+                            <div class="contact">
+                                <i class="fa fa-user-circle-o"></i>
+                                <br>
+                                contact</div>
+                            <div class="keypad">
+                                <i class="fa fa-dot-circle-o"></i>
+                                <br>
+                                keypad</div>
+                            <div class="voicemail">
+                                <i class="fa fa-microphone"></i>
+                                <br>
+                                voicemail</div>
+                        </section>
+
+                        <section class="calling">
+                            <section class="name-time">
+                                <img src="pics/bggg.jfif" alt="" class="name-img">
+                                <h1 class="callers-name"></h1>
+                                <p class="call-time"></p>
+                            </section>
+                            <section class="calling-btns">
+                                <div class="calling-btn-mute">
+                                    <i class="fa fa-microphone-slash"></i>
+                                    <p>mute</p>
+                                </div>
+                                <div class="calling-btn-keypad">
+                                    <i class="fa fa-dot-circle-o"></i>
+                                    <p>keypad</p>
+                                </div>
+                                <div class="calling-btn-speaker">
+                                    <i class="fa fa-volume-up"></i>
+                                    <p>speaker</p>
+                                </div>
+                                <div class="calling-btn-plus">
+                                    <i class="fa fa-plus"></i>
+                                    <p>add call</p>
+                                </div>
+                                <div class="calling-btn-">
+                                    <i class="fa fa-video-camera"></i>
+                                    <p>facetime</p>
+                                </div>
+                                <div class="calling-btn-">
+                                    <i class="fa fa-user-circle-o"></i>
+                                    <p>contacts</p>
+                                </div>
+                                <!-- <div class="end-call">
+                                    <i class="fa fa-phone" style="background-color:red"></i>
+                                </div> -->
+                            </section>
+                        </section>
+                    </section>
+
+                    <!-- !!!!!!!!!!!!END PHONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
+
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!1 CLOCKK APPP!!!!!!!!!!!!!!!!!!!!!!!!!11 -->
+                    <section class="main-clock">
+                        <section class="clock-timer">
+                            <h1 id="timer-time"></h1>
+                        </section>
+                        <section class="clock-btns">
+                            <div class="timer-cancel"> cancel </div>
+                            <div class="timer-pause">start</div>
+                        </section>
+                        <section class="alarms">
+                            <h2 class="alarms-h2">when timer ends</h2>
+                        </section>
+                    </section>
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!END CLOCKK APPP!!!!!!!!!!!!!!!!!!!!!!!!!11 -->
+
+                </section>
+                
+
+
+
+
+
+
+
+
+            </section>
+    
+    </section>
+</body>
+</html>

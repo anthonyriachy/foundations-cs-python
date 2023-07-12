@@ -102,10 +102,21 @@ def main():
       
       print("the largest number is :" ,findMax(lst[1:],lst[0]))
     if(choice=="3"):
+
       
+      f=int(input("what HTML file do you want:\n 1)local variable (small)\n 2)large file"))
       tag=input("enter the tag you want to count:")
+      if(f==2):
+        with open('index.html' , 'r') as file:
+          html=file.read()
+        print(tag, "is repeated", htmltag(html.split("<"),tag),"times")
+      if(f==1):
+        print(tag, "is repeated", htmltag(htmlCode.split("<"),tag),"times")
       
-      print(tag, "is repeated", htmltag(htmlCode.split("<"),tag),"times")
+
+      
+      
+
     if(choice=="4"):
       return 0
     
