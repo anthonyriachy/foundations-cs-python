@@ -26,7 +26,7 @@ def numOfDigits(num):
   
   num=int(num)#cast
   
-  if(num==0):
+  if(num==0 or num ==1):
     return 0
     
   return 1 + numOfDigits(num//10) 
@@ -111,6 +111,7 @@ def main():
           html=file.read()
         print(tag, "is repeated", htmltag(html.split("<"),tag),"times")
       if(f==1):
+        print(htmlCode.split("<"))
         print(tag, "is repeated", htmltag(htmlCode.split("<"),tag),"times")
       
 
