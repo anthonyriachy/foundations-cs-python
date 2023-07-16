@@ -26,7 +26,7 @@ def numOfDigits(num):
   
   num=int(num)#cast
   
-  if(num==0 or num ==1):
+  if(num==0):
     return 0
     
   return 1 + numOfDigits(num//10) 
