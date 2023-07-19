@@ -35,23 +35,45 @@ def JSONtoDic():
   
 
 
-def dicToJSON(dic):
-  strr="{\n\t"
+def dicToJSON(dic,empty):
+
+  if(empty):
+    strr="[\n\t{\n\t\t"
+  else:
+    strr="\t\n\t{\n\t\t"
+
   length=0
   for i in dic:
     if(length!=len(dic)-1):
-      strr+='"'+i+'"'+" : "+'"'+str(dic[i])+'"'+",\n\t"
+      if(type(dic[i])==list):
+        strr+='"'+i+'"'+" : "+str(dic[i])+","+"\n\t\t"  
+      else:
+        strr+='"'+i+'"'+" : "+'"'+str(dic[i])+'"'+","+"\n\t\t"
     else:
-      strr+='"'+i+'"'+" : "+'"'+str(dic[i])+'"'+"\n"
+      if(type(dic[i])==list):
+        strr+='"'+i+'"'+" : "+'"'+str(dic[i])+'"'+""  
+      else:
+        strr+='"'+i+'"'+" : "+str(dic[i])+""
     length+=1
-  strr+="}"
+  
+  strr+="\n\t}"+"\n]"  
+  
+
 
   return strr
-    
-  
 
-  
-  
+def is_empty(file_path):
+  with open(file_path, 'r') as file:
+      content = file.read()
+      if content.strip() and content.strip()[-1] == ']':
+          delete_last(file_path, content)
+  return not content.strip()
+
+def delete_last(file_path, content):
+    with open(file_path, 'w') as file:
+        file.write(content[:-1])
+
+
 
 
 def main():
@@ -83,17 +105,26 @@ def main():
   if(choice==2):
     elements=int(input("enter the number of elements of the object"))
     dic={}
+    path="writeJson.json"
     print("fill the dictinary (key/value)")
     for i in range(elements):
       key=input("key:")
       value=input("value:")
       dic[key]=value
-    var =dicToJSON(dic)
-    with open ("writeJson.json",'w') as file:
-      file.write(var)
+
+    flag=is_empty(path)
+    var =dicToJSON(dic,flag)
     
-    print(dicToJSON(dic))
+    with open (path,'a') as file:
+      if(not flag):
+        file.write(','+var)
+      else:
+        file.write(var)
+
     
+    print(dicToJSON(dic,flag))
+    
+
       
   
                    
