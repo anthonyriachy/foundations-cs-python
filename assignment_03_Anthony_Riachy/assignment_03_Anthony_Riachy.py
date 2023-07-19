@@ -34,6 +34,19 @@ def JSONtoDic():
   return object_list
   
 
+
+def dicToJSON(dic):
+  strr="{\n\t"
+  length=0
+  for i in dic:
+    if(length!=len(dic)-1):
+      strr+='"'+i+'"'+" : "+'"'+str(dic[i])+'"'+",\n\t"
+    else:
+      strr+='"'+i+'"'+" : "+'"'+str(dic[i])+'"'+"\n"
+    length+=1
+  strr+="}"
+
+  return strr
     
   
 
@@ -63,9 +76,23 @@ def main():
     
     del lst
     print(SumTuples(tuple1,tuple2))
-  if (choice==2):
+  if (choice==3):
     print(JSONtoDic())
-  
+
+
+  if(choice==2):
+    elements=int(input("enter the number of elements of the object"))
+    dic={}
+    print("fill the dictinary (key/value)")
+    for i in range(elements):
+      key=input("key:")
+      value=input("value:")
+      dic[key]=value
+    var =dicToJSON(dic)
+    with open ("writeJson.json",'w') as file:
+      file.write(var)
+    
+    print(dicToJSON(dic))
     
       
   
