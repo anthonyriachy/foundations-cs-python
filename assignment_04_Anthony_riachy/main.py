@@ -24,10 +24,6 @@ class Graph():
 
         self.vertex_list={}
 
-        
-
-
-
         self.size=size
 
         for i in range(size):
@@ -89,7 +85,6 @@ class Graph():
         friends=[]
         name_pos=self.vertex_list[name]
         for i in self.adj_matrix[name]:
-            print(self.adj_matrix[name][i])
             if(self.adj_matrix[name][i]==1):
 
                 friends.append(i) #insert the numebr of the friend 
@@ -97,6 +92,8 @@ class Graph():
         for i in friends: 
             print(i)
             
+
+
     def DFS(self,v):
         visited={i:False for i in self.adj_matrix}        
         stack=Stack()
@@ -131,8 +128,11 @@ def main():
 
     while(choice!=7):
         print(menu)
-        choice=int(input())
-        people.print_adj_matrix()   
+        choice=input()
+        while(not choice.isdigit() or int(choice)<0 or int(choice)>7):
+            choice=input("etner a valid choice")
+        choice=int(choice)
+
         if(choice==1):
             user=input("enter the userName you want to add: ")
             user_exists=people.check_user(user)
@@ -144,7 +144,7 @@ def main():
         if(choice==2):
             user=input('enter the user you want to delete: ')
             user_exists=people.check_user(user)
-            if(not user_exists):
+            if(not user_exists or user=='name_0'):
                 print('userName does not exist')
             else:
                 people.remove_vertex(user)
@@ -161,13 +161,26 @@ def main():
                     print('userName does not exist')
                 else:
                     people.add_edge(user_1,user_2)
+
         if(choice==4):
             user_1=input("enter the name of the first user")
-            user_2=input("enter the name of the second user") #check if users are here
-            people.remove_edge(user_1,user_2) 
+            user_exists=people.check_user(user_1)
+            if(not user_exists):
+                print('userName does not exist')
+            else:
+                user_2=input("enter the name of the second user") #check if users are here
+                user_exists=people.check_user(user_2)
+                if(not user_exists):
+                    print('userName does not exist')
+                else:
+                    people.remove_edge(user_1,user_2) 
         if(choice==5):
             user=input('enter the user you want to find his friends')
-            people.list_of_friends(user)
+            user_exists=people.check_user(user)
+            if(not user_exists):
+                print('userName does not exist')
+            else:
+                people.list_of_friends(user)
         if(choice==6):
             people.DFS('name_0')
 
