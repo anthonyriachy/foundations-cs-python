@@ -28,7 +28,7 @@ class Graph():
 
         for i in range(size):
             self.vertex_list[f'name_{i}']=i
-            self.adj_matrix[f'name_{i}']={f'name_{i}':0 for i in range(size)}
+            self.adj_matrix[f'name_{i}']={f'name_{i}':0 for i in range(size)} #fill it with values {name: {"name":relation}, ...}
             # self.adj_matrix.append([0 for i in range(size)]) #create a 2d array and fill it with 0
             
         
@@ -44,7 +44,7 @@ class Graph():
     
     def add_edge(self,name_1,name_2):
         self.adj_matrix[name_1][name_2]=1
-        self.adj_matrix[name_2][name_1]=1
+        self.adj_matrix[name_2][name_1]=1 
         
     def remove_edge(self,name_1,name_2):
         if(self.adj_matrix[name_1][name_2]==0):
@@ -55,9 +55,9 @@ class Graph():
     
 
     def remove_vertex(self,user):
-        del self.adj_matrix[user]
+        del self.adj_matrix[user] #delete vertex
         self.size=self.size-1
-        for i in self.adj_matrix.values():
+        for i in self.adj_matrix.values(): #remove all realtion with this vertex
             del i[user]
         del self.vertex_list[user]
         
@@ -73,7 +73,7 @@ class Graph():
         self.size=pos #incrememnt size by 1
         self.vertex_list[user]=pos #add it to the vertex_list
         
-        self.adj_matrix[user]=({i:0 for i in (self.vertex_list)}) # add a new row of zeros
+        self.adj_matrix[user]=({i:0 for i in (self.vertex_list)}) # add a new row of zeros vertex_list contain the names
 
         for i in self.adj_matrix:
             self.adj_matrix[i][user]=0
@@ -85,9 +85,9 @@ class Graph():
         friends=[]
         name_pos=self.vertex_list[name]
         for i in self.adj_matrix[name]:
-            if(self.adj_matrix[name][i]==1):
+            if(self.adj_matrix[name][i]==1): #if there is a relation
 
-                friends.append(i) #insert the numebr of the friend 
+                friends.append(i) #insert the name of the friends 
 
         for i in friends: 
             print(i)
@@ -115,14 +115,9 @@ class Graph():
                         if(self.adj_matrix[v][i]==1 and not visited[i]):
                             stack.push(i)
         print('\n')
+        
 def main():
     people=Graph(8)
-
-    # people.add_edge('name_2',"name_3")
-    # people.add_edge('name_2',"name_4")
-    # people.add_edge('name_2',"name_6")
-    # people.add_edge('name_2',"name_9")
-    # people.add_edge('name_2',"name_0")
     menu="1.Add a user to the platform.\n2.Remove a user from the platform\n3.Send a friend request to another user.\n4.Remove a friend from your list\n5.View your list of friends.\n6.View the list of users of the platform.\n7.Exit\n- - - - - - - - - - - - - - - -\nEnter a choice:"
     choice=0
 
@@ -189,15 +184,8 @@ def main():
 
     
     
-    people.add_edge('name_2',"name_3")
-    people.add_edge('name_2',"name_4")
-    people.add_edge('name_2',"name_6")
-    people.add_edge('name_2',"name_9")
-    people.add_edge('name_2',"name_0")
-    people.print_adj_matrix()   
-    print('friends are: ')
-    people.list_of_friends('name_2')
-    people.DFS(0)
+    
+
 main()
 
 
